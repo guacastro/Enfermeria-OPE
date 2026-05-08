@@ -3,64 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#faf7f2">
-<title>Quiz App · Enfermería</title>
+<meta name="theme-color" content="#f7faf8">
+<title>OPE Enfermería Euskadi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════
    THEME TOKENS (light by default, dark via [data-theme="dark"])
 ═══════════════════════════════════════════════════════════════ */
 :root {
-    --bg: #faf7f2;
-    --bg-alt: #f3ede3;
+    --bg: #f7faf8;
+    --bg-alt: #edf5f0;
     --surface: #ffffff;
-    --surface-2: #fbf8f3;
-    --border: #e8e0d2;
-    --text: #1f2433;
-    --text-muted: #6b7280;
-    --text-faint: #9ca3af;
-    --accent: #e85d3d;
-    --accent-hover: #d54d30;
-    --accent-soft: #fde8e0;
-    --accent-soft-border: #f4c9b8;
+    --surface-2: #f3f7f4;
+    --border: #dce7df;
+    --text: #0f2a23;
+    --text-muted: #5c7670;
+    --text-faint: #8fa39d;
+    --accent: #0d9488;
+    --accent-hover: #0f766e;
+    --accent-soft: #ccfbf1;
+    --accent-soft-border: #5eead4;
     --success: #16a34a;
     --success-soft: #dcfce7;
     --danger: #dc2626;
     --danger-soft: #fee2e2;
-    --warning: #eab308;
+    --warning: #ca8a04;
     --warning-soft: #fef9c3;
-    --shadow-sm: 0 1px 2px rgba(31,36,51,0.04);
-    --shadow-md: 0 4px 12px rgba(31,36,51,0.08);
-    --shadow-lg: 0 8px 24px rgba(31,36,51,0.12);
+    --doubt: #7c3aed;
+    --doubt-soft: #ede9fe;
+    --shadow-sm: 0 1px 2px rgba(15,42,35,0.04);
+    --shadow-md: 0 4px 12px rgba(15,42,35,0.08);
+    --shadow-lg: 0 8px 24px rgba(15,42,35,0.12);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 20px;
-    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-base: 16px;
 }
 [data-theme="dark"] {
-    --bg: #13151c;
-    --bg-alt: #1a1d26;
-    --surface: #1e222d;
-    --surface-2: #252a37;
-    --border: #323847;
-    --text: #e5e7eb;
-    --text-muted: #9ca3af;
-    --text-faint: #6b7280;
-    --accent: #f97366;
-    --accent-hover: #fb8578;
-    --accent-soft: #3a1e1a;
-    --accent-soft-border: #5a2a22;
+    --bg: #0b1513;
+    --bg-alt: #112220;
+    --surface: #152926;
+    --surface-2: #1a3330;
+    --border: #254540;
+    --text: #e5f0ec;
+    --text-muted: #9cbab2;
+    --text-faint: #6e8a83;
+    --accent: #2dd4bf;
+    --accent-hover: #5eead4;
+    --accent-soft: #164e45;
+    --accent-soft-border: #0f766e;
     --success: #22c55e;
     --success-soft: #14361f;
     --danger: #ef4444;
     --danger-soft: #3a1818;
     --warning: #facc15;
     --warning-soft: #3a3110;
+    --doubt: #a78bfa;
+    --doubt-soft: #2d1b4d;
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
     --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
@@ -95,19 +99,34 @@ body {
 }
 .auth-brand {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: var(--accent);
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(13,148,136,0.25);
+}
+[data-theme="dark"] .auth-logo { box-shadow: 0 8px 24px rgba(45,212,191,0.2); }
 .auth-brand h1 {
-    font-family: var(--font-serif);
-    font-size: 2.8rem;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
     color: var(--text);
     font-weight: 800;
     letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 .auth-brand p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: 4px;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    font-weight: 500;
 }
 .auth-card {
     width: 100%;
@@ -263,17 +282,17 @@ body {
 .screen { display: none; }
 .screen.active { display: block; }
 
-/* Page header (serif title + muted subtitle) */
+/* Page header (display title + muted subtitle) */
 .page-header { margin-bottom: 20px; }
 .page-header h1 {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
     font-weight: 800;
     color: var(--text);
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
 }
-.page-header p { color: var(--text-muted); font-size: 0.95rem; margin-top: 4px; }
+.page-header p { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; font-weight: 500; }
 
 /* Section label (uppercase small) */
 .section-label {
@@ -297,60 +316,61 @@ body {
 /* ═══════════════════════════════════════════════════════════════
    HOME SCREEN
 ═══════════════════════════════════════════════════════════════ */
-.streak-card {
-    background: linear-gradient(135deg, var(--accent) 0%, #f07a5e 100%);
+/* Metric cards (3 stacked cards on Home) */
+.metric-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.metric-card {
     color: white;
-    border: none;
-    padding: 22px;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-radius: var(--radius-lg);
+    gap: 16px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
 }
-.streak-info .streak-label {
-    font-size: 0.85rem;
+.metric-gradient-1 { background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #06b6d4 100%); }
+.metric-gradient-2 { background: linear-gradient(135deg, #0891b2 0%, #0ea5e9 50%, #6366f1 100%); }
+.metric-gradient-3 { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%); }
+[data-theme="dark"] .metric-gradient-1 { background: linear-gradient(135deg, #115e59 0%, #0f766e 50%, #155e75 100%); }
+[data-theme="dark"] .metric-gradient-2 { background: linear-gradient(135deg, #164e63 0%, #0c4a6e 50%, #312e81 100%); }
+[data-theme="dark"] .metric-gradient-3 { background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #831843 100%); }
+.metric-icon {
+    font-size: 2.4rem;
     opacity: 0.9;
-    font-weight: 500;
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.18);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    backdrop-filter: blur(10px);
 }
-.streak-info .streak-number {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
+.metric-body { flex: 1; min-width: 0; }
+.metric-label {
+    font-size: 0.7rem;
+    opacity: 0.92;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+.metric-number {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
     font-weight: 800;
     line-height: 1;
+    margin-top: 4px;
 }
-.streak-info .streak-sub {
-    font-size: 0.8rem;
+.metric-sub {
+    font-size: 0.78rem;
     opacity: 0.85;
-    margin-top: 2px;
-}
-.streak-flame { font-size: 3rem; opacity: 0.9; }
-
-.quick-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.quick-stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 14px 10px;
-    text-align: center;
-}
-.quick-stat .num {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text);
-}
-.quick-stat .lbl {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .home-action {
@@ -384,6 +404,81 @@ body {
 .home-action .action-text h3 { font-size: 1rem; font-weight: 600; color: var(--text); }
 .home-action .action-text p { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
 .home-action .action-chevron { color: var(--text-faint); font-size: 1.1rem; }
+
+/* Study Mode cards (big cards in Estudia hub) */
+.study-mode-card {
+    display: flex;
+    gap: 16px;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+.study-mode-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.study-mode-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+.study-mode-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+.study-mode-body p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.study-mode-cta {
+    margin-top: 10px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Count chips grid (for exam question count) */
+.count-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.count-chip {
+    padding: 14px 8px;
+    border: 2px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: all 0.15s;
+}
+.count-chip:hover { border-color: var(--accent); color: var(--accent); }
+.count-chip.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
 
 /* ═══════════════════════════════════════════════════════════════
    TEST (new test config screen)
@@ -603,7 +698,7 @@ body {
 }
 .stat-item { text-align: center; }
 .stat-item .label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.stat-item .value { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; color: var(--text); }
+.stat-item .value { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--text); }
 .stat-item .value.correct { color: var(--success); }
 .stat-item .value.wrong { color: var(--danger); }
 
@@ -666,7 +761,7 @@ body {
    TEST IN PROGRESS
 ═══════════════════════════════════════════════════════════════ */
 .test-header { text-align: center; margin-bottom: 18px; }
-.test-header h1 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 800; }
+.test-header h1 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; }
 .test-header p { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
 
 .test-progress {
@@ -748,7 +843,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 2.6rem;
     font-weight: 800;
     border: 6px solid;
@@ -772,11 +867,11 @@ body {
     border: 1px solid var(--border);
     min-width: 80px;
 }
-.result-stat .num { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 800; }
+.result-stat .num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; }
 .result-stat .lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
 
 .review-section { margin-top: 26px; text-align: left; }
-.review-section h3 { font-family: var(--font-serif); color: var(--text); margin-bottom: 16px; font-size: 1.3rem; font-weight: 700; }
+.review-section h3 { font-family: var(--font-display); color: var(--text); margin-bottom: 16px; font-size: 1.3rem; font-weight: 700; }
 .review-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -839,7 +934,7 @@ body {
     margin-bottom: 10px;
 }
 .stat-big-number {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 2.8rem;
     font-weight: 800;
     color: var(--text);
@@ -860,7 +955,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 800;
     color: var(--text);
@@ -903,12 +998,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 800;
     flex-shrink: 0;
 }
-.profile-info h2 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--text); }
+.profile-info h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text); }
 .profile-info p { color: var(--text-muted); font-size: 0.88rem; margin-top: 2px; }
 
 .settings-group {
@@ -1054,14 +1149,16 @@ body {
     z-index: 100;
     max-width: 900px;
     margin: 0 auto;
+    box-shadow: 0 -2px 12px rgba(15,42,35,0.04);
 }
+[data-theme="dark"] .bottom-nav { box-shadow: 0 -2px 12px rgba(0,0,0,0.4); }
 .nav-item {
     flex: 1;
     background: transparent;
     border: none;
     color: var(--text-muted);
     font-family: var(--font-sans);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 500;
     cursor: pointer;
     padding: 6px 4px;
@@ -1070,37 +1167,35 @@ body {
     align-items: center;
     gap: 4px;
     transition: color 0.2s;
+    position: relative;
 }
-.nav-item:hover, .nav-item.active { color: var(--accent); }
-.nav-item .nav-icon { font-size: 1.25rem; }
-.nav-item.center-btn {
+.nav-item:hover { color: var(--text); }
+.nav-item.active { color: var(--accent); font-weight: 600; }
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 3px;
     background: var(--accent);
-    color: white;
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    flex: none;
-    font-size: 1.6rem;
-    margin-top: -22px;
-    box-shadow: var(--shadow-md);
-    padding: 0;
-    justify-content: center;
+    border-radius: 0 0 3px 3px;
 }
-.nav-item.center-btn:hover { color: white; background: var(--accent-hover); }
-.nav-item.center-btn .nav-icon { font-size: 1.6rem; }
+.nav-item .nav-icon { display: flex; align-items: center; justify-content: center; }
 
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 @media (min-width: 640px) {
     .app { padding: 32px 24px 0; }
-    .page-header h1 { font-size: 2.6rem; }
+    .page-header h1 { font-size: 2.2rem; }
 }
 
 @media (max-width: 380px) {
-    .quick-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .quick-stat { padding: 12px 6px; }
-    .page-header h1 { font-size: 1.9rem; }
+    .page-header h1 { font-size: 1.7rem; }
+    .metric-number { font-size: 1.9rem; }
+    .metric-icon { width: 48px; height: 48px; font-size: 2rem; }
 }
 </style>
 </head>
@@ -1111,8 +1206,14 @@ body {
 ═══════════════════════════════════════════════════════════════ -->
 <div id="auth-screen" class="auth-screen">
     <div class="auth-brand">
-        <h1>Quiz App</h1>
-        <p>Enfoca tu oposición</p>
+        <div class="auth-logo">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/>
+                <path d="M12 8v8M8 12h8"/>
+            </svg>
+        </div>
+        <h1>OPE Enfermería</h1>
+        <p>Euskadi · Prepara tu oposición</p>
     </div>
     <div class="auth-card">
         <div class="auth-tabs">
@@ -1162,45 +1263,49 @@ body {
     <!-- ─── INICIO ─── -->
     <div id="screen-home" class="screen active">
         <div class="page-header">
-            <h1>Hola <span id="user-first-name">👋</span></h1>
-            <p>Bienvenido de vuelta</p>
+            <h1>Hola, <span id="user-first-name">👋</span></h1>
+            <p>Listo para avanzar con tu oposición</p>
         </div>
-        <div class="streak-card">
-            <div class="streak-info">
-                <div class="streak-label">Racha de estudio</div>
-                <div class="streak-number" id="streak-days">0</div>
-                <div class="streak-sub" id="streak-sub">días consecutivos</div>
+        <div class="metric-stack">
+            <div class="metric-card metric-gradient-1">
+                <div class="metric-icon">🔥</div>
+                <div class="metric-body">
+                    <div class="metric-label">RACHA DE ESTUDIO</div>
+                    <div class="metric-number" id="streak-days">0</div>
+                    <div class="metric-sub" id="streak-sub">días consecutivos</div>
+                </div>
             </div>
-            <div class="streak-flame">🔥</div>
+            <div class="metric-card metric-gradient-2">
+                <div class="metric-icon">📚</div>
+                <div class="metric-body">
+                    <div class="metric-label">PREGUNTAS ESTUDIADAS</div>
+                    <div class="metric-number" id="home-answered">0</div>
+                    <div class="metric-sub" id="home-answered-sub">de 500 totales</div>
+                </div>
+            </div>
+            <div class="metric-card metric-gradient-3">
+                <div class="metric-icon">📝</div>
+                <div class="metric-body">
+                    <div class="metric-label">EXÁMENES REALIZADOS</div>
+                    <div class="metric-number" id="home-exams">0</div>
+                    <div class="metric-sub" id="home-exams-sub">exámenes completados</div>
+                </div>
+            </div>
         </div>
-        <div class="quick-stats">
-            <div class="quick-stat">
-                <div class="num" id="home-answered">0</div>
-                <div class="lbl">Respondidas</div>
-            </div>
-            <div class="quick-stat">
-                <div class="num" id="home-accuracy">0%</div>
-                <div class="lbl">Aciertos</div>
-            </div>
-            <div class="quick-stat">
-                <div class="num" id="home-total-q">500</div>
-                <div class="lbl">Preguntas</div>
-            </div>
-        </div>
-        <div class="section-label">Continuar</div>
-        <div class="home-action" onclick="switchScreen('test')">
-            <div class="action-icon">🎯</div>
+        <div class="section-label">Accesos rápidos</div>
+        <div class="home-action" onclick="goToReview()">
+            <div class="action-icon">📖</div>
             <div class="action-text">
-                <h3>Nuevo Test</h3>
-                <p>Práctica o simulacro de examen</p>
+                <h3>Repaso general</h3>
+                <p>Revisa las 500 preguntas</p>
             </div>
             <div class="action-chevron">›</div>
         </div>
-        <div class="home-action" onclick="switchScreen('bancos')">
-            <div class="action-icon">📚</div>
+        <div class="home-action" onclick="switchScreen('estudia'); setTimeout(()=>openExam(), 100);">
+            <div class="action-icon">📝</div>
             <div class="action-text">
-                <h3>Repaso General</h3>
-                <p>Revisa las 500 preguntas</p>
+                <h3>Examen simulacro</h3>
+                <p>Pon a prueba tus conocimientos</p>
             </div>
             <div class="action-chevron">›</div>
         </div>
@@ -1214,126 +1319,164 @@ body {
         </div>
     </div>
 
-    <!-- ─── BANCOS (repaso general) ─── -->
-    <div id="screen-bancos" class="screen">
-        <div class="page-header">
-            <h1>Bancos</h1>
-            <p>Revisa y estudia las preguntas</p>
-        </div>
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="label">Total</div>
-                <div class="value" id="rev-total">500</div>
+    <!-- ─── ESTUDIA (hub: repaso + examen) ─── -->
+    <div id="screen-estudia" class="screen">
+        <div id="estudia-hub">
+            <div class="page-header">
+                <h1>Estudia</h1>
+                <p>Elige cómo quieres trabajar hoy</p>
             </div>
-            <div class="stat-item">
-                <div class="label">Resp.</div>
-                <div class="value" id="rev-answered">0</div>
-            </div>
-            <div class="stat-item">
-                <div class="label">OK</div>
-                <div class="value correct" id="rev-correct">0</div>
-            </div>
-            <div class="stat-item">
-                <div class="label">Fallo</div>
-                <div class="value wrong" id="rev-wrong">0</div>
-            </div>
-            <div class="stat-item">
-                <div class="label">Guard.</div>
-                <div class="value" id="rev-saved">0</div>
-            </div>
-        </div>
-        <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all" onclick="filterReview('all', event)">Todas</button>
-            <button class="filter-tab" data-filter="unanswered" onclick="filterReview('unanswered', event)">Sin responder</button>
-            <button class="filter-tab" data-filter="correct" onclick="filterReview('correct', event)">Correctas</button>
-            <button class="filter-tab" data-filter="wrong" onclick="filterReview('wrong', event)">Incorrectas</button>
-            <button class="filter-tab" data-filter="saved" onclick="filterReview('saved', event)">Guardadas</button>
-            <button class="filter-tab" data-filter="doubt" onclick="filterReview('doubt', event)">Dudosas</button>
-        </div>
-        <input type="text" class="search-box" placeholder="🔍 Buscar pregunta..." oninput="searchReview(this.value)">
-        <button class="reset-btn" onclick="resetReview()">🔄 Reiniciar progreso</button>
-        <div id="review-questions"></div>
-    </div>
-
-    <!-- ─── TEST (nuevo test) ─── -->
-    <div id="screen-test" class="screen">
-        <div id="test-start">
-            <div class="page-header test-config-header">
-                <h1>Nuevo Test</h1>
-                <p>Práctica o simulacro</p>
-            </div>
-            <div class="test-today-counter">Tests hoy: <strong id="tests-today">0</strong> · Máx. 50 preguntas por test</div>
-            <div class="section-label">Modo</div>
-            <div class="mode-option selected" data-mode="practice" onclick="selectMode('practice')">
-                <div class="mode-icon">🎯</div>
-                <div class="mode-text">
-                    <h3>Práctica</h3>
-                    <p>Practica sin presión a tu ritmo</p>
+            <div class="study-mode-card" onclick="openReview()">
+                <div class="study-mode-icon">📖</div>
+                <div class="study-mode-body">
+                    <h3>Repaso general</h3>
+                    <p>Revisa las 500 preguntas con filtros, búsqueda y retroalimentación inmediata. Marca las dudosas y guarda las importantes.</p>
+                    <div class="study-mode-cta">Empezar repaso →</div>
                 </div>
             </div>
-            <div class="mode-option" data-mode="exam" onclick="selectMode('exam')">
-                <div class="mode-icon">📝</div>
-                <div class="mode-text">
-                    <h3>Examen</h3>
-                    <p>Simulacro completo cronometrado</p>
+            <div class="study-mode-card" onclick="openExam()">
+                <div class="study-mode-icon">📝</div>
+                <div class="study-mode-body">
+                    <h3>Examen simulacro</h3>
+                    <p>Responde una selección aleatoria sin retroalimentación hasta el final. Elige cuántas preguntas quieres contestar.</p>
+                    <div class="study-mode-cta">Configurar examen →</div>
                 </div>
             </div>
-            <div class="mode-option" data-mode="saved" onclick="selectMode('saved')">
-                <div class="mode-icon">🔖</div>
-                <div class="mode-text">
-                    <h3>Guardadas</h3>
-                    <p>Repasa tus preguntas guardadas</p>
+            <div class="study-mode-card" onclick="openSavedQuestions('saved')">
+                <div class="study-mode-icon">🔖</div>
+                <div class="study-mode-body">
+                    <h3>Preguntas guardadas</h3>
+                    <p><span id="estudia-saved-count">0</span> preguntas guardadas para repasar más tarde. Ideal para marcar las que quieres revisar con calma.</p>
+                    <div class="study-mode-cta">Ver guardadas →</div>
                 </div>
             </div>
-            <div class="mode-option" data-mode="wrong" onclick="selectMode('wrong')">
-                <div class="mode-icon">✗</div>
-                <div class="mode-text">
-                    <h3>Falladas</h3>
-                    <p>Practica las que has fallado</p>
+            <div class="study-mode-card" onclick="openSavedQuestions('wrong')">
+                <div class="study-mode-icon">✗</div>
+                <div class="study-mode-body">
+                    <h3>Preguntas falladas</h3>
+                    <p><span id="estudia-wrong-count">0</span> preguntas que has respondido incorrectamente. Perfecto para reforzar donde tienes más dificultades.</p>
+                    <div class="study-mode-cta">Ver falladas →</div>
                 </div>
-            </div>
-            <div class="section-label">Configuración</div>
-            <div class="config-row">
-                <div>
-                    <label>Cantidad de preguntas</label>
-                    <div class="value" id="test-count-label">20 preguntas</div>
-                </div>
-                <select id="test-count" onchange="updateCountLabel()">
-                    <option value="10">10</option>
-                    <option value="20" selected>20</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                </select>
-            </div>
-            <button class="btn-start-test" onclick="startTest()">▶ Comenzar Test</button>
-        </div>
-
-        <div id="test-active" style="display:none;">
-            <div class="test-header">
-                <h1>Test en Progreso</h1>
-                <p id="test-counter">Pregunta 1 de 20</p>
-            </div>
-            <div class="test-progress">
-                <div class="test-progress-fill" id="test-progress-fill" style="width:0%"></div>
-            </div>
-            <div class="question-dots" id="test-dots"></div>
-            <div id="test-question-area" style="margin-top:18px;"></div>
-            <div class="test-nav">
-                <button class="test-nav-btn prev" id="btn-prev" onclick="testNav(-1)">← Anterior</button>
-                <button class="test-nav-btn next" id="btn-next" onclick="testNav(1)">Siguiente →</button>
-                <button class="test-nav-btn finish" id="btn-finish" style="display:none;" onclick="finishTest()">✓ Finalizar</button>
             </div>
         </div>
 
-        <div id="test-results" style="display:none;" class="results-screen">
-            <h1 style="font-family:var(--font-serif); font-size:1.8rem; font-weight:800; margin-bottom:20px;">Resultados</h1>
-            <div id="score-display"></div>
-            <div class="results-summary" id="results-summary"></div>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-                <button class="btn-primary-full" onclick="showScreen('test'); resetTestUI();">Nuevo Test</button>
-                <button class="btn-secondary-full" onclick="switchScreen('home')">Volver al Inicio</button>
+        <!-- REPASO GENERAL -->
+        <div id="screen-review" style="display:none;">
+            <button class="back-link" onclick="closeSubScreen('estudia')">← Volver a Estudia</button>
+            <div class="page-header">
+                <h1>Repaso general</h1>
+                <p>Practica sin presión a tu ritmo</p>
             </div>
-            <div class="review-section" id="test-review-section"></div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="label">Total</div>
+                    <div class="value" id="rev-total">500</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">Resp.</div>
+                    <div class="value" id="rev-answered">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">OK</div>
+                    <div class="value correct" id="rev-correct">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">Fallo</div>
+                    <div class="value wrong" id="rev-wrong">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">Guard.</div>
+                    <div class="value" id="rev-saved">0</div>
+                </div>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all" onclick="filterReview('all', event)">Todas</button>
+                <button class="filter-tab" data-filter="unanswered" onclick="filterReview('unanswered', event)">Sin responder</button>
+                <button class="filter-tab" data-filter="correct" onclick="filterReview('correct', event)">Correctas</button>
+                <button class="filter-tab" data-filter="wrong" onclick="filterReview('wrong', event)">Incorrectas</button>
+                <button class="filter-tab" data-filter="saved" onclick="filterReview('saved', event)">Guardadas</button>
+                <button class="filter-tab" data-filter="doubt" onclick="filterReview('doubt', event)">Dudosas</button>
+            </div>
+            <input type="text" class="search-box" placeholder="🔍 Buscar pregunta..." oninput="searchReview(this.value)">
+            <button class="reset-btn" onclick="resetReview()">🔄 Reiniciar progreso</button>
+            <div id="review-questions"></div>
+        </div>
+
+        <!-- EXAMEN (config + activo + resultados) -->
+        <div id="screen-exam" style="display:none;">
+            <div id="exam-config">
+                <button class="back-link" onclick="closeSubScreen('estudia')">← Volver a Estudia</button>
+                <div class="page-header">
+                    <h1>Examen simulacro</h1>
+                    <p>Configura tu examen</p>
+                </div>
+                <div class="section-label">Modo</div>
+                <div class="mode-option selected" data-mode="all" onclick="selectExamMode('all')">
+                    <div class="mode-icon">🎯</div>
+                    <div class="mode-text">
+                        <h3>Todas las preguntas</h3>
+                        <p>Selección aleatoria del banco completo</p>
+                    </div>
+                </div>
+                <div class="mode-option" data-mode="saved" onclick="selectExamMode('saved')">
+                    <div class="mode-icon">🔖</div>
+                    <div class="mode-text">
+                        <h3>Solo guardadas</h3>
+                        <p>Repasa las preguntas que has guardado</p>
+                    </div>
+                </div>
+                <div class="mode-option" data-mode="wrong" onclick="selectExamMode('wrong')">
+                    <div class="mode-icon">✗</div>
+                    <div class="mode-text">
+                        <h3>Solo falladas</h3>
+                        <p>Practica las que has fallado</p>
+                    </div>
+                </div>
+                <div class="mode-option" data-mode="doubt" onclick="selectExamMode('doubt')">
+                    <div class="mode-icon">❓</div>
+                    <div class="mode-text">
+                        <h3>Solo dudosas</h3>
+                        <p>Las que marcaste para revisar</p>
+                    </div>
+                </div>
+                <div class="section-label">Cantidad de preguntas</div>
+                <div class="count-grid">
+                    <button class="count-chip" data-count="10" onclick="selectCount(10, event)">10</button>
+                    <button class="count-chip active" data-count="20" onclick="selectCount(20, event)">20</button>
+                    <button class="count-chip" data-count="30" onclick="selectCount(30, event)">30</button>
+                    <button class="count-chip" data-count="50" onclick="selectCount(50, event)">50</button>
+                    <button class="count-chip" data-count="100" onclick="selectCount(100, event)">100</button>
+                </div>
+                <button class="btn-start-test" onclick="startTest()">▶ Comenzar examen</button>
+            </div>
+
+            <div id="test-active" style="display:none;">
+                <div class="test-header">
+                    <h1>Examen en curso</h1>
+                    <p id="test-counter">Pregunta 1 de 20</p>
+                </div>
+                <div class="test-progress">
+                    <div class="test-progress-fill" id="test-progress-fill" style="width:0%"></div>
+                </div>
+                <div class="question-dots" id="test-dots"></div>
+                <div id="test-question-area" style="margin-top:18px;"></div>
+                <div class="test-nav">
+                    <button class="test-nav-btn prev" id="btn-prev" onclick="testNav(-1)">← Anterior</button>
+                    <button class="test-nav-btn next" id="btn-next" onclick="testNav(1)">Siguiente →</button>
+                    <button class="test-nav-btn finish" id="btn-finish" style="display:none;" onclick="finishTest()">✓ Finalizar</button>
+                </div>
+            </div>
+
+            <div id="test-results" style="display:none;" class="results-screen">
+                <h1 style="font-family:var(--font-display); font-size:1.7rem; font-weight:800; margin-bottom:20px;">Resultados</h1>
+                <div id="score-display"></div>
+                <div class="results-summary" id="results-summary"></div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <button class="btn-primary-full" onclick="openExam()">Nuevo examen</button>
+                    <button class="btn-secondary-full" onclick="switchScreen('home')">Volver al inicio</button>
+                </div>
+                <div class="review-section" id="test-review-section"></div>
+            </div>
         </div>
     </div>
 
@@ -1458,7 +1601,7 @@ body {
                 <div class="settings-chevron">›</div>
             </div>
         </div>
-        <p style="text-align:center; color:var(--text-faint); font-size:0.8rem; margin-top:20px;">Quiz App · Versión 2.0</p>
+        <p style="text-align:center; color:var(--text-faint); font-size:0.8rem; margin-top:20px;">OPE Enfermería Euskadi · v2.1</p>
     </div>
 
     <!-- ─── PREFERENCIAS (font / theme detail) ─── -->
@@ -1489,25 +1632,43 @@ body {
     </div>
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- BOTTOM NAV (4 tabs, no floating center button) -->
 <nav class="bottom-nav" id="bottom-nav" style="display:none;">
     <button class="nav-item active" data-tab="home" onclick="switchScreen('home')">
-        <span class="nav-icon">🏠</span>
+        <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+        </span>
         <span>Inicio</span>
     </button>
-    <button class="nav-item" data-tab="bancos" onclick="switchScreen('bancos')">
-        <span class="nav-icon">📚</span>
-        <span>Bancos</span>
-    </button>
-    <button class="nav-item center-btn" onclick="switchScreen('test')">
-        <span class="nav-icon">✎</span>
+    <button class="nav-item" data-tab="estudia" onclick="switchScreen('estudia')">
+        <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+        </span>
+        <span>Estudia</span>
     </button>
     <button class="nav-item" data-tab="stats" onclick="switchScreen('stats')">
-        <span class="nav-icon">📊</span>
-        <span>Stats</span>
+        <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+        </span>
+        <span>Estadísticas</span>
     </button>
     <button class="nav-item" data-tab="perfil" onclick="switchScreen('perfil')">
-        <span class="nav-icon">👤</span>
+        <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </span>
         <span>Perfil</span>
     </button>
 </nav>
@@ -2539,7 +2700,7 @@ let searchQuery = '';
 let testQuestions = [];
 let testAnswers = {};
 let testCurrentIdx = 0;
-let testMode = 'practice';
+let testMode = 'all';
 
 function loadState() {
     try {
@@ -2654,7 +2815,7 @@ function switchScreen(name) {
     if (screen) screen.classList.add('active');
 
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    const tabMap = { home:'home', bancos:'bancos', test:null, stats:'stats', perfil:'perfil', prefs:'perfil' };
+    const tabMap = { home:'home', estudia:'estudia', stats:'stats', perfil:'perfil', prefs:'perfil' };
     const activeTab = tabMap[name];
     if (activeTab) {
         const navBtn = document.querySelector(`.nav-item[data-tab="${activeTab}"]`);
@@ -2662,16 +2823,63 @@ function switchScreen(name) {
     }
 
     if (name === 'home') renderHome();
-    if (name === 'bancos') renderReview();
+    if (name === 'estudia') showEstudiaHub();
     if (name === 'stats') renderStats();
     if (name === 'perfil') populateProfile();
-    if (name === 'test') resetTestUI();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function showEstudiaHub() {
+    document.getElementById('estudia-hub').style.display = 'block';
+    document.getElementById('screen-review').style.display = 'none';
+    document.getElementById('screen-exam').style.display = 'none';
+    // Update counts for saved/wrong
+    let saved = 0, wrong = 0;
+    for (const k in state.answers) {
+        const a = state.answers[k];
+        if (a.saved) saved++;
+        if (a.answered && !a.correct) wrong++;
+    }
+    const sEl = document.getElementById('estudia-saved-count');
+    const wEl = document.getElementById('estudia-wrong-count');
+    if (sEl) sEl.textContent = saved;
+    if (wEl) wEl.textContent = wrong;
+}
+
+function openReview() {
+    document.getElementById('estudia-hub').style.display = 'none';
+    document.getElementById('screen-exam').style.display = 'none';
+    document.getElementById('screen-review').style.display = 'block';
+    renderReview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openExam() {
+    switchScreen('estudia');
+    document.getElementById('estudia-hub').style.display = 'none';
+    document.getElementById('screen-review').style.display = 'none';
+    document.getElementById('screen-exam').style.display = 'block';
+    document.getElementById('exam-config').style.display = 'block';
+    document.getElementById('test-active').style.display = 'none';
+    document.getElementById('test-results').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeSubScreen(parentScreen) {
+    if (parentScreen === 'estudia') {
+        showEstudiaHub();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function goToReview() {
+    switchScreen('estudia');
+    setTimeout(() => openReview(), 100);
+}
+
 function resetTestUI() {
-    document.getElementById('test-start').style.display = 'block';
+    document.getElementById('exam-config').style.display = 'block';
     document.getElementById('test-active').style.display = 'none';
     document.getElementById('test-results').style.display = 'none';
 }
@@ -2683,17 +2891,19 @@ function renderHome() {
     const firstName = (currentUser?.name || 'estudiante').split(' ')[0];
     document.getElementById('user-first-name').textContent = firstName + ' 👋';
 
-    let answered = 0, correct = 0, doubt = 0;
+    let answered = 0, doubt = 0;
     for (const k in state.answers) {
         const a = state.answers[k];
-        if (a.answered) { answered++; if (a.correct) correct++; }
+        if (a.answered) answered++;
         if (a.doubt) doubt++;
     }
     document.getElementById('home-answered').textContent = answered;
-    const acc = answered ? Math.round((correct / answered) * 100) : 0;
-    document.getElementById('home-accuracy').textContent = acc + '%';
-    document.getElementById('home-total-q').textContent = QUESTIONS.length;
+    document.getElementById('home-answered-sub').textContent = `de ${QUESTIONS.length} totales`;
     document.getElementById('home-doubt-count').textContent = doubt;
+
+    const exams = state.testsCompleted || 0;
+    document.getElementById('home-exams').textContent = exams;
+    document.getElementById('home-exams-sub').textContent = exams === 1 ? 'examen completado' : 'exámenes completados';
 
     document.getElementById('streak-days').textContent = state.streak.current;
     document.getElementById('streak-sub').textContent = state.streak.current === 1 ? 'día consecutivo' : 'días consecutivos';
@@ -2887,22 +3097,30 @@ function resetReview() {
 }
 
 function openSavedQuestions(type) {
-    switchScreen('bancos');
-    setTimeout(() => filterReview(type || 'saved'), 100);
+    switchScreen('estudia');
+    setTimeout(() => {
+        openReview();
+        filterReview(type || 'saved');
+    }, 100);
 }
 
 // ═══════════════════════════════════════════════════════════════
-// TEST
+// EXAM
 // ═══════════════════════════════════════════════════════════════
-function selectMode(m) {
+let examCount = 20;
+
+function selectExamMode(m) {
     testMode = m;
-    document.querySelectorAll('.mode-option').forEach(el => el.classList.remove('selected'));
-    document.querySelector(`.mode-option[data-mode="${m}"]`).classList.add('selected');
+    document.querySelectorAll('#exam-config .mode-option').forEach(el => el.classList.remove('selected'));
+    document.querySelector(`#exam-config .mode-option[data-mode="${m}"]`).classList.add('selected');
 }
-function updateCountLabel() {
-    const v = document.getElementById('test-count').value;
-    document.getElementById('test-count-label').textContent = v + ' preguntas';
+
+function selectCount(n, ev) {
+    examCount = n;
+    document.querySelectorAll('.count-chip').forEach(c => c.classList.remove('active'));
+    if (ev) ev.target.classList.add('active');
 }
+
 function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i+1));
@@ -2910,24 +3128,26 @@ function shuffle(arr) {
     }
     return arr;
 }
-function startTest() {
-    const count = parseInt(document.getElementById('test-count').value);
-    let pool = [];
 
+function startTest() {
+    let pool = [];
     if (testMode === 'saved') {
         for (let i = 0; i < QUESTIONS.length; i++) if (state.answers[i]?.saved) pool.push(i);
         if (pool.length === 0) return alert('No tienes preguntas guardadas todavía.');
     } else if (testMode === 'wrong') {
         for (let i = 0; i < QUESTIONS.length; i++) if (state.answers[i]?.answered && !state.answers[i].correct) pool.push(i);
         if (pool.length === 0) return alert('No tienes preguntas falladas todavía.');
+    } else if (testMode === 'doubt') {
+        for (let i = 0; i < QUESTIONS.length; i++) if (state.answers[i]?.doubt) pool.push(i);
+        if (pool.length === 0) return alert('No tienes preguntas marcadas como dudosas todavía.');
     } else {
         pool = Array.from({ length: QUESTIONS.length }, (_, i) => i);
     }
 
-    testQuestions = shuffle(pool).slice(0, Math.min(count, pool.length));
+    testQuestions = shuffle(pool).slice(0, Math.min(examCount, pool.length));
     testAnswers = {};
     testCurrentIdx = 0;
-    document.getElementById('test-start').style.display = 'none';
+    document.getElementById('exam-config').style.display = 'none';
     document.getElementById('test-active').style.display = 'block';
     document.getElementById('test-results').style.display = 'none';
     renderTestQuestion();
