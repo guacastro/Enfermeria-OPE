@@ -1447,6 +1447,578 @@ body {
    RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 /* ═══════════════════════════════════════════════════════════════
+   LANDING (commercial page)
+═══════════════════════════════════════════════════════════════ */
+.landing-screen {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.landing-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(247,250,248,0.92);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+[data-theme="dark"] .landing-nav { background: rgba(11,21,19,0.92); }
+.landing-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.landing-nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(13,148,136,0.2);
+}
+.landing-nav-name { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; line-height: 1; }
+.landing-nav-tag { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; letter-spacing: 0.05em; margin-top: 2px; }
+.landing-nav-btn {
+    padding: 9px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 99px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.landing-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Hero */
+.landing-hero {
+    padding: 60px 20px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.landing-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+}
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(13,148,136,0.15);
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(13,148,136,0.15); }
+    50% { box-shadow: 0 0 0 8px rgba(13,148,136,0.08); }
+}
+.landing-hero h1 {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+.landing-hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto 28px;
+    line-height: 1.55;
+}
+.landing-hero-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.landing-btn-primary {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(13,148,136,0.25);
+    transition: all 0.2s;
+}
+.landing-btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(13,148,136,0.3); }
+.landing-btn-big { padding: 16px 40px; font-size: 1.05rem; }
+.landing-hero-sub-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Stats strip under hero */
+.landing-stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+    padding: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+.stat-pill { text-align: center; }
+.stat-pill-num {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+.stat-pill-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* Generic landing section */
+.landing-section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.landing-section-dark {
+    background: var(--surface);
+    max-width: none;
+    margin: 0;
+    padding: 60px 20px;
+}
+.landing-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.landing-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+}
+.landing-section-header h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+.landing-section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Features grid */
+.landing-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+.landing-feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    transition: all 0.2s;
+}
+.landing-feature:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent-soft-border); }
+.landing-feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+}
+.landing-feature h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+.landing-feature p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Mockup rows */
+.mockup-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mockup-row:last-child { margin-bottom: 0; }
+.mockup-row-reverse .mockup-label { order: 2; }
+.mockup-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.mockup-label h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+.mockup-label p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.mockup-frame {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 18px;
+    box-shadow: 0 20px 40px rgba(15,42,35,0.08);
+}
+[data-theme="dark"] .mockup-frame { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+/* Mockup: question card */
+.mockup-question { font-size: 0.85rem; }
+.mockup-q-header { display: flex; gap: 8px; margin-bottom: 10px; align-items: center; }
+.mockup-q-num { background: var(--bg-alt); color: var(--text-muted); padding: 3px 10px; border-radius: 99px; font-size: 0.7rem; font-weight: 700; }
+.mockup-bank-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.6rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+}
+.mockup-bank-tag.enf { background: var(--accent-soft); color: var(--accent); }
+.mockup-bank-tag.com { background: #e0e7ff; color: #4338ca; }
+[data-theme="dark"] .mockup-bank-tag.com { background: #3730a3; color: #c7d2fe; }
+.mockup-q-text { color: var(--text); line-height: 1.5; margin-bottom: 12px; font-weight: 500; }
+.mockup-options { display: flex; flex-direction: column; gap: 6px; }
+.mockup-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--surface-2);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+}
+.mockup-option.correct { border-color: var(--success); background: var(--success-soft); }
+.mockup-option.alt { border-color: #f97316; background: #ffedd5; }
+[data-theme="dark"] .mockup-option.alt { background: rgba(249,115,22,0.15); }
+.mockup-letter {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+.mockup-option.correct .mockup-letter { background: var(--success); color: white; }
+.mockup-option.alt .mockup-letter { background: #f97316; color: white; }
+.mockup-sind-tag {
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+}
+.mockup-sind-tag.green { background: var(--success-soft); color: var(--success); border: 1px solid var(--success); }
+.mockup-sind-tag.orange { background: #ffedd5; color: #c2410c; border: 1px solid #f97316; }
+[data-theme="dark"] .mockup-sind-tag.orange { background: rgba(249,115,22,0.15); color: #fdba74; }
+.mockup-feedback {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--accent-soft);
+    color: var(--text);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 10px;
+    font-size: 0.78rem;
+}
+
+/* Mockup: stats */
+.mockup-stats-header { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.mockup-stats-header h4 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
+.mockup-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent) 87%, var(--border) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.mockup-ring-inner {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text);
+}
+.mockup-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mockup-stat-col {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.78rem;
+}
+.mockup-stat-col-header {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: var(--text);
+}
+.mockup-stat-row { display: flex; justify-content: space-between; padding: 4px 0; color: var(--text-muted); font-size: 0.78rem; }
+
+/* Mockup: metrics */
+.mockup-metrics { display: flex; flex-direction: column; gap: 10px; }
+.mockup-metric {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    color: white;
+}
+.mockup-metric.metric-1 { background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #06b6d4 100%); }
+.mockup-metric.metric-2 { background: linear-gradient(135deg, #0891b2 0%, #0ea5e9 50%, #6366f1 100%); }
+.mockup-metric.metric-3 { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%); }
+.mockup-metric-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+.mockup-metric-label { font-size: 0.65rem; opacity: 0.9; font-weight: 700; letter-spacing: 0.08em; }
+.mockup-metric-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; line-height: 1; margin-top: 2px; }
+.mockup-metric-sub { font-size: 0.72rem; opacity: 0.85; margin-top: 2px; }
+
+/* Included in premium - list */
+.landing-included {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+}
+.landing-included ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; }
+.landing-included li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.45;
+}
+.landing-included li span {
+    color: var(--success);
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* Pricing section */
+.landing-section-pricing {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--accent-soft) 100%);
+    max-width: none;
+    margin: 0;
+}
+[data-theme="dark"] .landing-section-pricing { background: linear-gradient(180deg, var(--bg) 0%, rgba(13,148,136,0.15) 100%); }
+.landing-pricing-card {
+    max-width: 440px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-xl);
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(13,148,136,0.15);
+    position: relative;
+}
+.landing-pricing-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+.landing-pricing-amount {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin: 10px 0 4px;
+}
+.landing-pricing-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.landing-pricing-trial {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-alt);
+    padding: 14px;
+    border-radius: var(--radius-md);
+    margin-bottom: 18px;
+    text-align: left;
+}
+.trial-icon { font-size: 1.5rem; flex-shrink: 0; }
+.landing-pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Final CTA */
+.landing-section-cta {
+    text-align: center;
+    padding: 60px 20px 80px;
+}
+.landing-section-cta h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+.landing-section-cta p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 24px;
+}
+
+/* Footer */
+.landing-footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+/* Auth back button */
+.auth-back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+.auth-back-btn:hover { background: var(--bg-alt); color: var(--text); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .landing-hero h1 { font-size: 1.9rem; }
+    .landing-hero-sub { font-size: 0.95rem; }
+    .landing-section-header h2 { font-size: 1.6rem; }
+    .landing-section { padding: 48px 16px; }
+    .landing-section-dark { padding: 48px 16px; }
+    .mockup-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 44px; }
+    .mockup-row-reverse .mockup-label { order: 0; }
+    .landing-included ul { grid-template-columns: 1fr; }
+    .landing-stats-strip { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .landing-nav { padding: 12px 16px; }
+    .landing-nav-name { font-size: 0.88rem; }
+    .landing-nav-tag { font-size: 0.65rem; }
+    .landing-nav-btn { padding: 7px 14px; font-size: 0.8rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    SUBSCRIPTION UI (banner, profile card, paywall)
 ═══════════════════════════════════════════════════════════════ */
 
@@ -1722,9 +2294,260 @@ body {
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════════
+     LANDING (commercial page - shown before login)
+═══════════════════════════════════════════════════════════════ -->
+<div id="landing-screen" class="landing-screen">
+    <!-- Top bar with logo and sign-in link -->
+    <nav class="landing-nav">
+        <div class="landing-nav-brand">
+            <div class="landing-nav-logo">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/>
+                    <path d="M12 8v8M8 12h8"/>
+                </svg>
+            </div>
+            <div class="landing-nav-title">
+                <div class="landing-nav-name">OPE Enfermería</div>
+                <div class="landing-nav-tag">OSAKIDETZA</div>
+            </div>
+        </div>
+        <button class="landing-nav-btn" onclick="showAuthFromLanding()">Iniciar sesión</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="landing-hero">
+        <div class="landing-hero-content">
+            <h1>Prepara tu OPE de Enfermería<br>para OSAKIDETZA 2026</h1>
+            <p class="landing-hero-sub">Banco específico de enfermería + temario común con 700 preguntas oficiales de los años 2023, 2024 y 2025. Respuestas contrastadas por los 6 sindicatos.</p>
+            <div class="landing-hero-cta">
+                <button class="landing-btn-primary" onclick="showAuthFromLanding()">Comenzar prueba gratuita</button>
+                <div class="landing-hero-sub-info">
+                    <span>✓ 24 horas gratis</span>
+                    <span>✓ Pago único 2,99 €</span>
+                    <span>✓ Sin suscripción</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats strip removed -->
+    </section>
+
+    <!-- Features grid -->
+    <section class="landing-section">
+        <div class="landing-section-header">
+            <div class="landing-eyebrow">Qué vas a encontrar</div>
+            <h2>Todo lo que necesitas para aprobar</h2>
+        </div>
+        <div class="landing-features">
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:var(--accent-soft); color:var(--accent);">📚</div>
+                <h3>2 bancos de preguntas</h3>
+                <p>500 preguntas específicas de enfermería y 200 del temario común obligatorio de Osakidetza.</p>
+            </div>
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:#ffedd5; color:#c2410c;">⚖</div>
+                <h3>Respuestas por sindicato</h3>
+                <p>En las preguntas controvertidas verás qué respuesta marca MAD, UGT, SATSE, LAB, S PLAY y ESK.</p>
+            </div>
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:#e0e7ff; color:#4338ca;">📝</div>
+                <h3>Modo examen simulacro</h3>
+                <p>Prueba tus conocimientos con exámenes aleatorios de 10, 20, 30, 50 o 100 preguntas.</p>
+            </div>
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:#fef3c7; color:#a16207;">📖</div>
+                <h3>Modo repaso libre</h3>
+                <p>Estudia a tu ritmo con retroalimentación inmediata. Guarda las importantes, marca las dudosas.</p>
+            </div>
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:#dcfce7; color:#16a34a;">🔥</div>
+                <h3>Racha de estudio</h3>
+                <p>Motívate con la racha diaria, estadísticas detalladas por banco y tu progreso a lo largo del tiempo.</p>
+            </div>
+            <div class="landing-feature">
+                <div class="landing-feature-icon" style="background:#f3e8ff; color:#7c3aed;">⬇</div>
+                <h3>Descarga los bancos</h3>
+                <p>Exporta ambos bancos completos en texto con sus respuestas, incluidas las variantes por sindicato.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App preview mockups -->
+    <section class="landing-section landing-section-dark">
+        <div class="landing-section-header">
+            <div class="landing-eyebrow">Así se ve</div>
+            <h2>Ejemplos de la app</h2>
+            <p class="landing-section-sub">Pantallas reales de lo que vas a usar</p>
+        </div>
+
+        <!-- Mockup 1: Question card with multi-sindicato -->
+        <div class="mockup-row">
+            <div class="mockup-label">
+                <div class="mockup-num">01</div>
+                <h3>Respuestas correctas por sindicato</h3>
+                <p>Cuando una pregunta tiene respuestas diferentes según la fuente, lo ves claramente: tu opción en verde y las alternativas en naranja, cada una con la etiqueta del sindicato que la considera correcta.</p>
+            </div>
+            <div class="mockup-frame">
+                <div class="mockup-question">
+                    <div class="mockup-q-header">
+                        <span class="mockup-q-num">#187</span>
+                        <span class="mockup-bank-tag enf">ENF</span>
+                    </div>
+                    <div class="mockup-q-text">¿Qué signo de peligro en el embarazo debe ser comunicado inmediatamente?</div>
+                    <div class="mockup-options">
+                        <div class="mockup-option correct"><span class="mockup-letter">A</span><span>Ptialismo</span><span class="mockup-sind-tag green">UGT</span></div>
+                        <div class="mockup-option alt"><span class="mockup-letter">B</span><span>Leucorrea</span><span class="mockup-sind-tag orange">SATSE</span><span class="mockup-sind-tag orange">LAB</span><span class="mockup-sind-tag orange">S PLAY</span><span class="mockup-sind-tag orange">ESK</span></div>
+                        <div class="mockup-option"><span class="mockup-letter">C</span><span>Síndrome del túnel carpiano</span></div>
+                        <div class="mockup-option"><span class="mockup-letter">D</span><span>Hiperemesis gravídica</span></div>
+                    </div>
+                    <div class="mockup-feedback">✓ Correcto según UGT. Esta pregunta tiene respuestas distintas según sindicato.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mockup 2: Stats screen -->
+        <div class="mockup-row mockup-row-reverse">
+            <div class="mockup-label">
+                <div class="mockup-num">02</div>
+                <h3>Estadísticas detalladas por banco</h3>
+                <p>Ve tu progreso separado por banco: cuántas respondiste, cuántas acertaste, guardadas y dudosas. Todo en tiempo real para saber en qué enfocarte.</p>
+            </div>
+            <div class="mockup-frame">
+                <div class="mockup-stats">
+                    <div class="mockup-stats-header">
+                        <h4>Precisión global</h4>
+                        <div class="mockup-ring">
+                            <div class="mockup-ring-inner">87%</div>
+                        </div>
+                    </div>
+                    <div class="mockup-stats-grid">
+                        <div class="mockup-stat-col">
+                            <div class="mockup-stat-col-header"><span class="mockup-bank-tag enf">ENF</span><span>Enfermería</span></div>
+                            <div class="mockup-stat-row"><span>Total</span><strong>500</strong></div>
+                            <div class="mockup-stat-row"><span>✓ Correctas</span><strong style="color:#16a34a;">124</strong></div>
+                            <div class="mockup-stat-row"><span>✗ Incorrectas</span><strong style="color:#dc2626;">18</strong></div>
+                        </div>
+                        <div class="mockup-stat-col">
+                            <div class="mockup-stat-col-header"><span class="mockup-bank-tag com">COM</span><span>Común</span></div>
+                            <div class="mockup-stat-row"><span>Total</span><strong>200</strong></div>
+                            <div class="mockup-stat-row"><span>✓ Correctas</span><strong style="color:#16a34a;">45</strong></div>
+                            <div class="mockup-stat-row"><span>✗ Incorrectas</span><strong style="color:#dc2626;">7</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mockup 3: Streak card -->
+        <div class="mockup-row">
+            <div class="mockup-label">
+                <div class="mockup-num">03</div>
+                <h3>Motivación diaria</h3>
+                <p>Mantén tu racha de estudio activa todos los días. Mide tu progreso con 3 tarjetas clave: días consecutivos, preguntas estudiadas y exámenes realizados.</p>
+            </div>
+            <div class="mockup-frame">
+                <div class="mockup-metrics">
+                    <div class="mockup-metric metric-1">
+                        <div class="mockup-metric-icon">🔥</div>
+                        <div>
+                            <div class="mockup-metric-label">RACHA</div>
+                            <div class="mockup-metric-num">14</div>
+                            <div class="mockup-metric-sub">días consecutivos</div>
+                        </div>
+                    </div>
+                    <div class="mockup-metric metric-2">
+                        <div class="mockup-metric-icon">📚</div>
+                        <div>
+                            <div class="mockup-metric-label">ESTUDIADAS</div>
+                            <div class="mockup-metric-num">394</div>
+                            <div class="mockup-metric-sub">de 700 totales</div>
+                        </div>
+                    </div>
+                    <div class="mockup-metric metric-3">
+                        <div class="mockup-metric-icon">📝</div>
+                        <div>
+                            <div class="mockup-metric-label">EXÁMENES</div>
+                            <div class="mockup-metric-num">27</div>
+                            <div class="mockup-metric-sub">completados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included in premium -->
+    <section class="landing-section">
+        <div class="landing-section-header">
+            <div class="landing-eyebrow">Qué incluye</div>
+            <h2>Acceso completo con un pago único</h2>
+        </div>
+        <div class="landing-included">
+            <ul>
+                <li><span>✓</span> Acceso ilimitado a las 700 preguntas</li>
+                <li><span>✓</span> Banco de Enfermería (500 preguntas)</li>
+                <li><span>✓</span> Banco de Temario Común (200 preguntas)</li>
+                <li><span>✓</span> Respuestas variantes por los 6 sindicatos</li>
+                <li><span>✓</span> Modo examen simulacro ilimitado</li>
+                <li><span>✓</span> Modo repaso libre con retroalimentación</li>
+                <li><span>✓</span> Filtrado: correctas, incorrectas, guardadas, dudosas</li>
+                <li><span>✓</span> Búsqueda por número o texto</li>
+                <li><span>✓</span> Estadísticas completas y racha de estudio</li>
+                <li><span>✓</span> Descarga de los bancos en texto</li>
+                <li><span>✓</span> Modo claro y oscuro</li>
+                <li><span>✓</span> Tamaño de fuente personalizable</li>
+                <li><span>✓</span> Funciona en móvil, tablet y ordenador</li>
+                <li><span>✓</span> Actualizaciones futuras incluidas</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="landing-section landing-section-pricing">
+        <div class="landing-section-header">
+            <div class="landing-eyebrow">Precio</div>
+            <h2>Una sola vez. Para siempre.</h2>
+            <p class="landing-section-sub">Sin suscripciones mensuales. Sin letra pequeña.</p>
+        </div>
+        <div class="landing-pricing-card">
+            <div class="landing-pricing-badge">Pago único</div>
+            <div class="landing-pricing-amount">2,99 €</div>
+            <div class="landing-pricing-sub">Acceso permanente</div>
+            <div class="landing-pricing-trial">
+                <div class="trial-icon">🕐</div>
+                <div>
+                    <strong>Prueba gratuita de 24 horas</strong>
+                    <div style="font-size:0.85rem; opacity:0.8;">Prueba todas las funciones antes de pagar</div>
+                </div>
+            </div>
+            <button class="landing-btn-primary landing-btn-big" onclick="showAuthFromLanding()">Comenzar ahora</button>
+            <div class="landing-pricing-features">
+                <div>✓ Sin suscripción</div>
+                <div>✓ Sin tarjeta para el trial</div>
+                <div>✓ Acceso desde 2 dispositivos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="landing-section landing-section-cta">
+        <h2>¿Listo para prepararte?</h2>
+        <p>Únete y comienza tus 24 horas gratis ahora mismo.</p>
+        <button class="landing-btn-primary landing-btn-big" onclick="showAuthFromLanding()">Crear mi cuenta</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+        <p>OPE Enfermería OSAKIDETZA · Preparación para la oposición 2026</p>
+        <p style="opacity:0.6; margin-top:4px;">Bancos de preguntas de los años 2023, 2024 y 2025 · Fuente: sindicatos MAD, UGT, SATSE, LAB, S PLAY y ESK</p>
+    </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
      AUTH SCREEN (login / signup)
 ═══════════════════════════════════════════════════════════════ -->
-<div id="auth-screen" class="auth-screen">
+<div id="auth-screen" class="auth-screen" style="display:none;">
+    <button class="auth-back-btn" onclick="showLanding()">← Volver</button>
     <div class="auth-brand">
         <div class="auth-logo">
             <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -3932,15 +4755,34 @@ function loginWithGoogle() {
 function logout() {
     if (!confirm('¿Cerrar sesión? Tu progreso se mantendrá guardado en este dispositivo.')) return;
     saveAuth(null);
-    document.getElementById('auth-screen').style.display = 'flex';
+    document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('app').style.display = 'none';
     document.getElementById('bottom-nav').style.display = 'none';
+    document.getElementById('paywall-screen').style.display = 'none';
+    document.getElementById('landing-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function showLanding() {
+    document.getElementById('auth-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('bottom-nav').style.display = 'none';
+    document.getElementById('paywall-screen').style.display = 'none';
+    document.getElementById('landing-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function showAuthFromLanding() {
+    document.getElementById('landing-screen').style.display = 'none';
+    document.getElementById('auth-screen').style.display = 'flex';
+    window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 // ═══════════════════════════════════════════════════════════════
 // APP NAVIGATION
 // ═══════════════════════════════════════════════════════════════
 function enterApp() {
+    document.getElementById('landing-screen').style.display = 'none';
     document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     document.getElementById('bottom-nav').style.display = 'flex';
@@ -4891,7 +5733,12 @@ function init() {
     checkStreakReset();
     applyTheme(prefs.theme, false);
     applyFontSize(prefs.fontSize, false);
-    if (currentUser) enterApp();
+    if (currentUser) {
+        enterApp();
+    } else {
+        // Show landing by default
+        document.getElementById('landing-screen').style.display = 'block';
+    }
 }
 
 init();
